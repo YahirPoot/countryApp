@@ -16,10 +16,6 @@ const routes: Routes = [
   },
   {
     path: 'by-region',
-    component: ByCapitalPageComponent
-  },
-  {
-    path: 'by-capital',
     component: ByRegionPageComponent
   },
   {

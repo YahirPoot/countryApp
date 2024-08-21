@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'contact',
     component: ContactPageComponent
   },
+  //? Lazy load sintaxis
+  {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
+  },
   {
     path: '**',
     redirectTo: ''
