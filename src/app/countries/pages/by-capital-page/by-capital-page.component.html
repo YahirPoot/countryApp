@@ -5,8 +5,9 @@
 
   <div class="col">
     <!-- SearchBox -->
+    <!-- (onValue)="searchByCapital($event)" -->
     <shired-search-box
-      (onValue)="searchByCapital($event)"
+    (onDebounce)="searchByCapital($event)"
       placeholder="Buscar por capital"></shired-search-box>
   </div>
 </div>
