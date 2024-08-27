@@ -5,7 +5,9 @@
 
   <div class="col">
     <!-- SearchBox -->
-    <shired-search-box placeholder="Buscar por capital"></shired-search-box>
+    <shired-search-box
+      (onValue)="searchByCapital($event)"
+      placeholder="Buscar por capital"></shired-search-box>
   </div>
 </div>
 
@@ -13,6 +15,6 @@
 
   <div class="col">
     <hr>
-    Tabla de resultados
+    <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
