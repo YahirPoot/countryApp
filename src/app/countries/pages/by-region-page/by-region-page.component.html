@@ -3,11 +3,14 @@
 
 <div class="row">
 
-  <div class="col">
+  <div class="col text-center">
     <!-- SearchBox -->
-    <shired-search-box
-      (onValue)="searchByRegion($event)"
-      placeholder="Buscar por region"></shired-search-box>
+    <button *ngFor="let region of regions"
+      class="btn mx-4"
+      [ngClass]="{ 'btn-outline-primary': selectRegion === region}"
+      (click)="searchByRegion(region)">
+      {{region}}
+    </button>
   </div>
 </div>
 

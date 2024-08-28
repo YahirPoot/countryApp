@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { debounceTime, Subject } from 'rxjs';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { debounceTime, Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'shired-search-box',
   templateUrl: './search-box.component.html',
   styles: ``
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit, OnDestroy {
 
   private debounce: Subject<string> = new Subject<string>();
+  private debounceSubscription?: Subscription;
 
 
   @Input()
@@ -26,6 +27,10 @@ export class SearchBoxComponent implements OnInit {
     .subscribe( value => {
       this.onDebounce.emit(value);
     } );
+  }
+
+  ngOnDestroy(): void {
+    this.debounceSubscription?.unsubscribe();
   }
 
   emitValue(value: string): void {
